@@ -1,6 +1,6 @@
 {
   "name": "@centreon/ui-context",
-  "version": "1.0.0",
+  "version": "20.10.0",
   "description": "Centreon UI shared context",
   "main": "src",
   "keywords": [],
@@ -11,7 +11,7 @@
     "eslint:fix": "npm run eslint -- --fix"
   },
   "devDependencies": {
-    "@centreon/frontend-core": "github:centreon/frontend-core",
+    "@centreon/frontend-core": "github:centreon/frontend-core#20.10.x",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-eslint": "^10.1.0",
