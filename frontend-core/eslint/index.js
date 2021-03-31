@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'babel', 'prefer-arrow-functions'],
+  plugins: ['react', 'react-hooks', 'babel', 'prefer-arrow-functions', 'sort-keys-fix'],
   settings: {
     'import/resolver': {
       alias: {
@@ -83,5 +83,10 @@ module.exports = {
     'prefer-arrow-functions/prefer-arrow-functions': ['error'],
     camelcase: ['error', { properties: 'never', ignoreDestructuring: true }],
     'react/jsx-wrap-multilines': ['error', { prop: false }],
+    'react/jsx-sort-props': ['error', {
+      shorthandFirst: true,
+      callbacksLast: true,
+    }],
+    'sort-keys-fix/sort-keys-fix': ['error', 'asc', { natural: true }]
   },
 };
