@@ -9,15 +9,15 @@ export type UserContext = {
 } & User;
 
 export interface ActionAcl {
-  check: boolean;
   acknowledgement: boolean;
+  check: boolean;
   downtime: boolean;
   submit_status: boolean;
 }
 
 export interface Actions {
-  service: ActionAcl;
   host: ActionAcl;
+  service: ActionAcl;
 }
 
 interface Acl {

@@ -3,23 +3,23 @@ import * as React from 'react';
 import { UserContext } from './types';
 
 const defaultUser = {
-  username: '',
   locale: navigator.language,
   timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  username: '',
 };
 
 const defaultAcl = {
   actions: {
     host: {
-      check: false,
       acknowledgement: false,
+      check: false,
       disacknowledgement: false,
       downtime: false,
       submit_status: false,
     },
     service: {
-      check: false,
       acknowledgement: false,
+      check: false,
       disacknowledgement: false,
       downtime: false,
       submit_status: false,
