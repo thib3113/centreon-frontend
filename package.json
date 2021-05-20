@@ -48,15 +48,12 @@
     "identity-obj-proxy": "3.x",
     "jest": "26.x",
     "mini-css-extract-plugin": "0.x",
-    "node-sass": "6.x",
+    "node-sass": "5.x",
     "prettier": "2.x",
     "resolve-url-loader": "3.x",
     "sass-loader": "9.x",
     "ts-loader": "7.x",
     "typescript": "3.x",
     "webpack-merge": "5.x"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
