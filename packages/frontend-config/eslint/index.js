@@ -22,7 +22,11 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        map: [
+          ["@centreon/ui", "@centreon/centreon-frontend/packages/centreon-ui"],
+          ["@centreon/ui-context", "@centreon/centreon-frontend/packages/ui-context"]
+        ],
       }
     }
   },
@@ -31,10 +35,7 @@ module.exports = {
       'error',
       { singleQuote: true, arrowParens: 'always', trailingComma: 'all', endOfLine: 'auto' },
     ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: true }
-    ],
+    'import/no-extraneous-dependencies': 'off',
     'import/order': ['error', {
         pathGroups: [
           {
