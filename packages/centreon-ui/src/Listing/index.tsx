@@ -105,9 +105,8 @@ const Listing = ({
   innerScrollDisabled = false,
 }: Props): JSX.Element => {
   const [tableTopOffset, setTableTopOffset] = useState(0);
-  const [hoveredRowId, setHoveredRowId] = useState<string | number | null>(
-    null,
-  );
+  const [hoveredRowId, setHoveredRowId] =
+    useState<string | number | null>(null);
 
   const paperRef = useRef<HTMLDivElement>();
   const paginationElement = useRef<HTMLDivElement>();

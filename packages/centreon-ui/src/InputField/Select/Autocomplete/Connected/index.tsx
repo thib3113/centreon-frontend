@@ -39,7 +39,7 @@ const ConnectedAutocompleteField = (
   multiple: boolean,
 ): ((props) => JSX.Element) => {
   const InnerConnectedAutocompleteField = <
-    TData extends Record<string, unknown>
+    TData extends Record<string, unknown>,
   >({
     initialPage = 1,
     getEndpoint,

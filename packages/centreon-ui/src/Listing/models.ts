@@ -4,6 +4,11 @@ export interface ComponentColumnProps {
   row;
 }
 
+export enum ColumnType {
+  string = 0,
+  component = 1,
+}
+
 export interface Column {
   Component?: (props: ComponentColumnProps) => JSX.Element | null;
   clickable?: boolean;
@@ -23,15 +28,8 @@ export interface Column {
   width?: number | string;
 }
 
-enum ColumnType {
-  string = 0,
-  component = 1,
-}
-
 export interface RowColorCondition {
   color: string;
   condition: (row) => boolean;
   name: string;
 }
-
-export { ColumnType };

@@ -14,7 +14,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/centreon/centreon-ui.git"
+    "url": "git+https://github.com/centreon/centreon-frontend.git"
   },
   "keywords": [
     "centreon",
@@ -23,15 +23,15 @@
   "author": "centreon@centreon.com",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/centreon/centreon-ui/issues"
+    "url": "https://github.com/centreon/centreon-frontend/issues"
   },
-  "homepage": "https://github.com/centreon/centreon-ui#readme",
+  "homepage": "https://github.com/centreon/centreon-frontend#readme",
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@centreon/ui-context": "github:centreon/ui-context#20.04.x",
+    "@centreon/ui-context": "file:../ui-context",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@centreon/frontend-core": "github:centreon/frontend-core#20.04.x",
+    "@centreon/frontend-config": "file:../frontend-config",
     "@storybook/addon-storyshots": "^6.1.21",
     "@storybook/addon-storyshots-puppeteer": "^5.3.19",
     "@storybook/react": "^6.1.21",
@@ -66,8 +66,8 @@
     "@testing-library/react": "^10.4.8",
     "@testing-library/react-hooks": "^3.4.1",
     "@types/ramda": "^0.27.14",
-    "@typescript-eslint/eslint-plugin": "^3.8.0",
-    "@typescript-eslint/parser": "^3.8.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
     "awesome-typescript-loader": "^5.2.1",
     "axios-mock-adapter": "^1.18.2",
     "babel-eslint": "^10.1.0",

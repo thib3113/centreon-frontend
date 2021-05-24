@@ -52,12 +52,8 @@ const ColumnCell = ({
 
   const cellByColumnType = {
     [ColumnType.string]: (): JSX.Element => {
-      const {
-        getFormattedString,
-        width,
-        getTruncateCondition,
-        getColSpan,
-      } = column;
+      const { getFormattedString, width, getTruncateCondition, getColSpan } =
+        column;
 
       const isTruncated = getTruncateCondition?.(isRowSelected);
       const colSpan = getColSpan?.(isRowSelected);
@@ -131,17 +127,14 @@ const MemoizedColumnCell = React.memo<Props>(
     const previousIsRowHovered = prevProps.isRowHovered;
     const previousIsRowSelected = prevProps.isRowSelected;
     const previousHasHoverableComponent = previousColumn.hasHoverableComponent;
-    const previousRenderComponentOnRowUpdate = previousColumn.getRenderComponentOnRowUpdateCondition?.(
-      previousRow,
-    );
-    const previousRenderComponentCondition = previousColumn.getRenderComponentCondition?.(
-      previousRow,
-    );
+    const previousRenderComponentOnRowUpdate =
+      previousColumn.getRenderComponentOnRowUpdateCondition?.(previousRow);
+    const previousRenderComponentCondition =
+      previousColumn.getRenderComponentCondition?.(previousRow);
     const previousIsComponentHovered =
       previousHasHoverableComponent && previousIsRowHovered;
-    const previousFormattedString = previousColumn.getFormattedString?.(
-      previousRow,
-    );
+    const previousFormattedString =
+      previousColumn.getFormattedString?.(previousRow);
     const previousTruncateCondition = previousColumn.getTruncateCondition?.(
       previousIsRowSelected,
     );
@@ -155,12 +148,10 @@ const MemoizedColumnCell = React.memo<Props>(
     const nextIsRowHovered = nextProps.isRowHovered;
     const nextIsRowSelected = nextProps.isRowSelected;
     const nextHasHoverableComponent = nextColumn.hasHoverableComponent;
-    const nextRenderComponentOnRowUpdate = nextColumn.getRenderComponentOnRowUpdateCondition?.(
-      nextRow,
-    );
-    const nextRenderComponentCondition = nextColumn.getRenderComponentCondition?.(
-      nextRow,
-    );
+    const nextRenderComponentOnRowUpdate =
+      nextColumn.getRenderComponentOnRowUpdateCondition?.(nextRow);
+    const nextRenderComponentCondition =
+      nextColumn.getRenderComponentCondition?.(nextRow);
     const nextIsComponentHovered =
       nextHasHoverableComponent && nextIsRowHovered;
 
@@ -168,13 +159,11 @@ const MemoizedColumnCell = React.memo<Props>(
 
     const nextColSpan = nextColumn.getColSpan?.(nextIsRowSelected);
 
-    const nextTruncateCondition = nextColumn.getTruncateCondition?.(
-      nextIsRowSelected,
-    );
+    const nextTruncateCondition =
+      nextColumn.getTruncateCondition?.(nextIsRowSelected);
 
-    const nextHiddenCondition = nextColumn.getHiddenCondition?.(
-      nextIsRowSelected,
-    );
+    const nextHiddenCondition =
+      nextColumn.getHiddenCondition?.(nextIsRowSelected);
 
     if (previousRenderComponentCondition && nextRenderComponentCondition) {
       return false;

@@ -53,9 +53,11 @@ const ListingHeader = React.forwardRef(
   ): JSX.Element => {
     const classes = useCellStyles(checkable);
 
-    const createSortHandler = (property) => (event): void => {
-      onRequestSort(event, property);
-    };
+    const createSortHandler =
+      (property) =>
+      (event): void => {
+        onRequestSort(event, property);
+      };
 
     const getSortField = (column): string => column.sortField || column.id;
 
