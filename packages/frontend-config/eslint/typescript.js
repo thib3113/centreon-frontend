@@ -11,11 +11,16 @@ module.exports = {
       settings: {
         'import/resolver': {
           alias: {
-            extensions: ['.ts', '.tsx', '.js', '.jsx']
+            extensions: ['.ts', '.tsx', '.js', '.jsx'],
+            map: [
+              ["@centreon/ui", "@centreon/centreon-frontend/packages/centreon-ui"],
+              ["@centreon/ui-context", "@centreon/centreon-frontend/packages/ui-context"]
+            ],
           }
         }
       },
       rules: {
+        'import/no-extraneous-dependencies': 'off',
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
         camelcase: 'off',
         '@typescript-eslint/camelcase': 'off',
