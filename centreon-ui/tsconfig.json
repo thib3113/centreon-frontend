@@ -1,0 +1,4 @@
+{
+  "extends": "@centreon/frontend-core/tsconfig/index",
+  "baseUrl": "./src",
+}
