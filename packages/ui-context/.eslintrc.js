@@ -1,3 +1,3 @@
 module.exports = {
-  extends: './node_modules/@centreon/frontend-config/eslint/typescript',
+  extends: '../frontend-config/eslint/typescript',
 };

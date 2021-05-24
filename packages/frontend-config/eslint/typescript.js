@@ -8,13 +8,6 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/recommended', 'plugin:typescript-sort-keys/recommended'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', 'typescript-sort-keys'],
-      settings: {
-        'import/resolver': {
-          alias: {
-            extensions: ['.ts', '.tsx', '.js', '.jsx']
-          }
-        }
-      },
       rules: {
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
         camelcase: 'off',
@@ -60,6 +53,8 @@ module.exports = {
         '@typescript-eslint/no-unused-expressions': ['error'],
         'no-unused-expressions': 'off',
         'react/require-default-props': 'off',
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': ['error']
       },
     }
   ]
