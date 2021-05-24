@@ -22,6 +22,7 @@
   "homepage": "https://github.com/centreon/centreon-frontend#readme",
   "dependencies": {
     "humanize-duration": "^3.25.1",
+    "loaders.css": "^0.1.2",
     "react-files": "^2.4.8",
     "react-router-dom": "^5.2.0",
     "react-sortable-hoc": "^1.11.0",
