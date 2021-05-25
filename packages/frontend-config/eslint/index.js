@@ -36,10 +36,6 @@ module.exports = {
       'error',
       { singleQuote: true, arrowParens: 'always', trailingComma: 'all', endOfLine: 'auto' },
     ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: true }
-    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx'] }],
