@@ -25,6 +25,7 @@
     "@dnd-kit/modifiers": "^1.0.5",
     "@dnd-kit/sortable": "^1.0.2",
     "@dnd-kit/utilities": "^1.0.2",
+    "dayjs": "^1.9.4",
     "humanize-duration": "^3.25.1",
     "react-files": "^2.4.8",
     "react-router-dom": "^5.2.0",
