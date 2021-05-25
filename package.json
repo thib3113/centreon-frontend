@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/centreon/centreon-frontend#readme",
   "dependencies": {
+    "dayjs": "^1.9.4",
     "humanize-duration": "^3.25.1",
     "loaders.css": "^0.1.2",
     "react-files": "^2.4.8",
