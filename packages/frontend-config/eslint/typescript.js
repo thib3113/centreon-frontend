@@ -54,7 +54,6 @@ module.exports = {
         'no-unused-expressions': 'off',
         'react/require-default-props': 'off',
         'no-shadow': 'off',
-        '@typescript-eslint/no-shadow': ['error']
       },
     }
   ]
