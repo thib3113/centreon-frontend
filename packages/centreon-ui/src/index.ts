@@ -51,6 +51,7 @@ export {
 export { default as ListingPage } from './ListingPage';
 export { default as Filters } from './ListingPage/Filters';
 export { default as Panel } from './Panel';
+export { default as WithPanel } from './Panel/WithPanel';
 
 export { default as Title } from './Title';
 export { default as Wrapper } from './Wrapper';
