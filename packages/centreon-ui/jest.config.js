@@ -5,5 +5,6 @@ module.exports = mergeDeepRight(
   {
     roots: ['<rootDir>/src/'],
     setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
+    testEnvironment: 'jsdom',
   },
 );
