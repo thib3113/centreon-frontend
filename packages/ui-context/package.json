@@ -31,8 +31,5 @@
     "eslint-plugin-typescript-sort-keys": "^1.5.0",
     "prettier": "^2.1.2",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "react": "^17.0.1"
   }
 }
