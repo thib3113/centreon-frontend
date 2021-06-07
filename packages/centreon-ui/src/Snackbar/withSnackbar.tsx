@@ -26,8 +26,13 @@ const withSnackbar = (
   Component: (props) => JSX.Element,
 ): ((props) => JSX.Element) => {
   return (props: SnackbarContextProviderProps): ReactElement => {
-    const { message, severity, showMessage, showMessages, confirmMessage } =
-      useMessage();
+    const {
+      message,
+      severity,
+      showMessage,
+      showMessages,
+      confirmMessage,
+    } = useMessage();
 
     const hasMessage = message !== undefined;
 

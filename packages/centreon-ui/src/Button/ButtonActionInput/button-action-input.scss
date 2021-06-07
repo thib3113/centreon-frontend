@@ -1,6 +1,6 @@
-@import '../../global-sass-files/variables';
-@import '../../global-sass-files/mixins';
-@import '../../Icon//IconAction/action-icons.scss';
+@import '../../global-sass-files/variables.module';
+@import '../../global-sass-files/mixins.module';
+@import '../../Icon//IconAction/action-icons.module.scss';
 
 // Button action
 .button-action {

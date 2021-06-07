@@ -131,15 +131,18 @@ const MemoizedDataCell = React.memo<Props>(
       rowColorConditions: previousRowColorConditions,
     } = prevProps;
     const previousHasHoverableComponent = previousColumn.hasHoverableComponent;
-    const previousRenderComponentOnRowUpdate =
-      previousColumn.getRenderComponentOnRowUpdateCondition?.(previousRow);
-    const previousRenderComponentCondition =
-      previousColumn.getRenderComponentCondition?.(previousRow);
+    const previousRenderComponentOnRowUpdate = previousColumn.getRenderComponentOnRowUpdateCondition?.(
+      previousRow,
+    );
+    const previousRenderComponentCondition = previousColumn.getRenderComponentCondition?.(
+      previousRow,
+    );
     const previousRowMemoProps = previousColumn.rowMemoProps;
     const previousIsComponentHovered =
       previousHasHoverableComponent && previousIsRowHovered;
-    const previousFormattedString =
-      previousColumn.getFormattedString?.(previousRow);
+    const previousFormattedString = previousColumn.getFormattedString?.(
+      previousRow,
+    );
     const previousIsTruncated = previousColumn.isTruncated;
     const previousColSpan = previousColumn.getColSpan?.(previousIsRowSelected);
     const previousHiddenCondition = previousColumn.getHiddenCondition?.(
@@ -154,10 +157,12 @@ const MemoizedDataCell = React.memo<Props>(
       rowColorConditions: nextRowColorConditions,
     } = nextProps;
     const nextHasHoverableComponent = nextColumn.hasHoverableComponent;
-    const nextRenderComponentOnRowUpdate =
-      nextColumn.getRenderComponentOnRowUpdateCondition?.(nextRow);
-    const nextRenderComponentCondition =
-      nextColumn.getRenderComponentCondition?.(nextRow);
+    const nextRenderComponentOnRowUpdate = nextColumn.getRenderComponentOnRowUpdateCondition?.(
+      nextRow,
+    );
+    const nextRenderComponentCondition = nextColumn.getRenderComponentCondition?.(
+      nextRow,
+    );
     const nextRowMemoProps = nextColumn.rowMemoProps;
     const nextIsComponentHovered =
       nextHasHoverableComponent && nextIsRowHovered;
@@ -166,8 +171,9 @@ const MemoizedDataCell = React.memo<Props>(
 
     const nextColSpan = nextColumn.getColSpan?.(nextIsRowSelected);
 
-    const nextHiddenCondition =
-      nextColumn.getHiddenCondition?.(nextIsRowSelected);
+    const nextHiddenCondition = nextColumn.getHiddenCondition?.(
+      nextIsRowSelected,
+    );
     const nextIsTruncated = nextColumn.isTruncated;
 
     const prevRowColors = previousRowColorConditions?.map(({ condition }) =>

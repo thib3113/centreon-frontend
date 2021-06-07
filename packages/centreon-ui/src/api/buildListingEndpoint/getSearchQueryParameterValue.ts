@@ -116,8 +116,9 @@ const getSearchQueryParameterValue = (
 
   const regexSearchParam = getRegexSearchQueryParameterValue(regex);
   const listSearchesParam = getListsSearchQueryParameterValue(lists);
-  const conditionSearchesParam =
-    getConditionsSearchQueryParameterValue(conditions);
+  const conditionSearchesParam = getConditionsSearchQueryParameterValue(
+    conditions,
+  );
 
   const result = reject<
     RegexSearchQueryParameterValue | ListsSearchQueryParameterValue

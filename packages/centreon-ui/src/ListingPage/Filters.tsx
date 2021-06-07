@@ -9,7 +9,7 @@ import {
   AccordionDetails,
   useTheme,
 } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from '@material-ui/icons/esm/ExpandMore';
 
 import { useMemoComponent } from '..';
 
