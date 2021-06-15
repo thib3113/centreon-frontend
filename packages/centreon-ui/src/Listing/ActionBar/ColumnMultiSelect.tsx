@@ -17,7 +17,8 @@ type Props = Pick<
 >;
 
 const toSelectEntries = (columns: Array<Column>): Array<SelectEntry> => {
-  return columns.map(({ id, label, shortLabel }) => ({
+  return columns.map(({ id, label, disabled, shortLabel }) => ({
+    disabled,
     id,
     name: `${label}${!isNil(shortLabel) ? ` (${shortLabel})` : ''}`,
   }));
