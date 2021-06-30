@@ -55,7 +55,14 @@ const PopoverMenu = ({
   return (
     <ClickAwayListener onClickAway={close}>
       <div>
-        <IconButton ariaLabel={title} title={title} onClick={toggle}>
+        <IconButton
+          ariaLabel={title}
+          style={{
+            width: '100%',
+          }}
+          title={title}
+          onClick={toggle}
+        >
           {icon}
         </IconButton>
         <Popper
