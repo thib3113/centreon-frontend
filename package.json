@@ -44,7 +44,7 @@
     "react-i18next": "^11.9.0",
     "react-router-dom": "^5.2.0",
     "resize-observer-polyfill": "^1.5.1",
-    "ts.data.json": "1.6.1",
+    "ts.data.json": "^2.0.0",
     "ulog": "^2.0.0-beta.18"
   },
   "devDependencies": {
