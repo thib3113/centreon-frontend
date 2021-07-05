@@ -1,7 +1,7 @@
 import React from 'react';
 
 import clsx from 'clsx';
-import { always, equals, isNil, not } from 'ramda';
+import { equals, isNil, not } from 'ramda';
 
 import {
   TextField as MuiTextField,
@@ -12,8 +12,6 @@ import {
   Tooltip,
 } from '@material-ui/core';
 
-import HeaderLabel from '../../Listing/Header/Label';
-
 enum Size {
   compact = 'compact',
   small = 'small',
@@ -23,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   compact: {
     fontSize: 'x-small',
     padding: theme.spacing(0.75),
+  },
+  fab: {
+    position: 'absolute',
   },
   input: {
     fontSize: theme.typography.body1.fontSize,
@@ -84,53 +85,45 @@ const TextField = React.forwardRef(
   ): JSX.Element => {
     const classes = useStyles();
 
-    const ErrorLabel = error;
-    const getTooltipErrorLabel = always(error);
-
-    const headerContent = (
-      <Tooltip placement="top" title={getTooltipErrorLabel(ErrorLabel)}>
-        <div>
-          <HeaderLabel>{ErrorLabel}</HeaderLabel>
-        </div>
-      </Tooltip>
-    );
     const isSizeEqualTo = (sizeToCompare: Size) => equals(size, sizeToCompare);
 
     return (
-      <MuiTextField
-        InputProps={{
-          className: clsx({
-            [classes.transparent]: transparent,
-          }),
-          disableUnderline: true,
-          endAdornment: EndAdornment && (
-            <OptionalLabelInputAdornment label={label} position="end">
-              <EndAdornment />
-            </OptionalLabelInputAdornment>
-          ),
-          startAdornment: StartAdornment && (
-            <OptionalLabelInputAdornment label={label} position="start">
-              <StartAdornment />
-            </OptionalLabelInputAdornment>
-          ),
-        }}
-        {...headerContent}
-        error={!isNil(error)}
-        inputProps={{
-          ...rest.inputProps,
-          'aria-label': ariaLabel,
-          className: clsx(classes.input, {
-            [classes.noLabelInput]: !label && not(isSizeEqualTo(Size.compact)),
-            [classes.small]: isSizeEqualTo(Size.small),
-            [classes.compact]: isSizeEqualTo(Size.compact),
-          }),
-        }}
-        label={label}
-        ref={ref}
-        size="small"
-        variant="filled"
-        {...rest}
-      />
+      <Tooltip title={error as string}>
+        <MuiTextField
+          InputProps={{
+            className: clsx({
+              [classes.transparent]: transparent,
+            }),
+            disableUnderline: true,
+            endAdornment: EndAdornment && (
+              <OptionalLabelInputAdornment label={label} position="end">
+                <EndAdornment />
+              </OptionalLabelInputAdornment>
+            ),
+            startAdornment: StartAdornment && (
+              <OptionalLabelInputAdornment label={label} position="start">
+                <StartAdornment />
+              </OptionalLabelInputAdornment>
+            ),
+          }}
+          error={!isNil(error)}
+          inputProps={{
+            ...rest.inputProps,
+            'aria-label': ariaLabel,
+            className: clsx(classes.input, {
+              [classes.noLabelInput]:
+                !label && not(isSizeEqualTo(Size.compact)),
+              [classes.small]: isSizeEqualTo(Size.small),
+              [classes.compact]: isSizeEqualTo(Size.compact),
+            }),
+          }}
+          label={label}
+          ref={ref}
+          size="small"
+          variant="filled"
+          {...rest}
+        />
+      </Tooltip>
     );
   },
 );
