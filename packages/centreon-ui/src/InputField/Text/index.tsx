@@ -1,7 +1,7 @@
 import React from 'react';
 
 import clsx from 'clsx';
-import { equals, isNil, not } from 'ramda';
+import { always, equals, isNil, not } from 'ramda';
 
 import {
   TextField as MuiTextField,
@@ -9,7 +9,10 @@ import {
   TextFieldProps,
   Theme,
   makeStyles,
+  Tooltip,
 } from '@material-ui/core';
+
+import HeaderLabel from '../../Listing/Header/Label';
 
 enum Size {
   compact = 'compact',
@@ -81,6 +84,16 @@ const TextField = React.forwardRef(
   ): JSX.Element => {
     const classes = useStyles();
 
+    const ErrorLabel = error;
+    const getTooltipErrorLabel = always(error);
+
+    const headerContent = (
+      <Tooltip placement="top" title={getTooltipErrorLabel(ErrorLabel)}>
+        <div>
+          <HeaderLabel>{ErrorLabel}</HeaderLabel>
+        </div>
+      </Tooltip>
+    );
     const isSizeEqualTo = (sizeToCompare: Size) => equals(size, sizeToCompare);
 
     return (
@@ -101,8 +114,8 @@ const TextField = React.forwardRef(
             </OptionalLabelInputAdornment>
           ),
         }}
+        {...headerContent}
         error={!isNil(error)}
-        helperText={error}
         inputProps={{
           ...rest.inputProps,
           'aria-label': ariaLabel,
