@@ -12,6 +12,8 @@ import {
   Tooltip,
 } from '@material-ui/core';
 
+import HeaderLabel from '../../Listing/Header/Label';
+
 enum Size {
   compact = 'compact',
   small = 'small',
@@ -21,9 +23,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   compact: {
     fontSize: 'x-small',
     padding: theme.spacing(0.75),
-  },
-  fab: {
-    position: 'absolute',
   },
   input: {
     fontSize: theme.typography.body1.fontSize,
@@ -85,6 +84,13 @@ const TextField = React.forwardRef(
   ): JSX.Element => {
     const classes = useStyles();
 
+    const headerContent = (
+      <Tooltip placement="top" title={error || ''}>
+        <div>
+          <HeaderLabel>{error}</HeaderLabel>
+        </div>
+      </Tooltip>
+    );
     const isSizeEqualTo = (sizeToCompare: Size) => equals(size, sizeToCompare);
 
     return (
@@ -106,6 +112,7 @@ const TextField = React.forwardRef(
               </OptionalLabelInputAdornment>
             ),
           }}
+          {...headerContent}
           error={!isNil(error)}
           inputProps={{
             ...rest.inputProps,
