@@ -16,6 +16,10 @@ import { IconButton } from '..';
 const useStyles = makeStyles({
   popoverIconButton: {
     padding: 0,
+<<<<<<< HEAD
+=======
+    width: '100%',
+>>>>>>> df56012faee3f73c1959030aeda9d4a843d5f0b3
   },
 });
 
