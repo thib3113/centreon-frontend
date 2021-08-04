@@ -27,7 +27,7 @@ module.exports = {
     'newline-before-return': ['error'],
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', next: '*', prev: ['const'] },
+      { blankLine: 'always', next: '*', prev: ['singleline-const', '(a) { }'] },
     ],
     'prefer-arrow-functions/prefer-arrow-functions': ['error'],
     'prettier/prettier': [
