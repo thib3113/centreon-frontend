@@ -121,4 +121,4 @@ export { default as useMemoComponent } from './utils/useMemoComponent';
 export { default as MenuSkeleton } from './MenuSkeleton';
 export { default as PopoverMenu } from './PopoverMenu';
 
-export { default as SortbleItems, RootComponentProps } from './SortableItems';
+export { default as SortableItems, RootComponentProps } from './SortableItems';
