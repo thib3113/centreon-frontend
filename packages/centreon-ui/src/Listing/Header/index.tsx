@@ -1,25 +1,8 @@
 import * as React from 'react';
 
-import {
-  equals,
-  find,
-  indexOf,
-  isNil,
-  map,
-  move,
-  path,
-  pick,
-  prop,
-  propEq,
-} from 'ramda';
-import {
-  DndContext,
-  DragOverlay,
-  PointerSensor,
-  useSensor,
-  useSensors,
-} from '@dnd-kit/core';
-import { SortableContext } from '@dnd-kit/sortable';
+import { equals, find, map, pick, propEq } from 'ramda';
+import { DraggableSyntheticListeners, rectIntersection } from '@dnd-kit/core';
+import { rectSortingStrategy } from '@dnd-kit/sortable';
 
 import {
   TableHead,
@@ -32,8 +15,8 @@ import {
 import Checkbox from '../Checkbox';
 import { getVisibleColumns, Props as ListingProps } from '..';
 import { Column } from '../models';
+import SortableItems from '../../SortableItems';
 
-import SortableHeaderCell from './SortableCell';
 import SortableHeaderCellContent from './SortableCell/Content';
 
 const height = 28;
@@ -74,6 +57,15 @@ type Props = Pick<
   selectedRowCount: number;
 };
 
+interface ContentProps extends Pick<Props, 'sortField' | 'sortOrder'> {
+  attributes;
+  id: string;
+  isDragging: boolean;
+  itemRef: React.RefObject<HTMLDivElement>;
+  listeners: DraggableSyntheticListeners;
+  style;
+}
+
 const ListingHeader = ({
   onSelectAllClick,
   sortOrder,
@@ -88,58 +80,48 @@ const ListingHeader = ({
 }: Props): JSX.Element => {
   const classes = useStyles();
 
-  const sensors = useSensors(useSensor(PointerSensor));
-
   const visibleColumns = getVisibleColumns({
     columnConfiguration,
     columns,
   });
 
-  const visibleColumnIds = visibleColumns.map(prop('id'));
-
-  const [draggingColumnId, setDraggingColumnId] = React.useState<string>();
-
-  const startDrag = (event) => {
-    setDraggingColumnId(path<string>(['active', 'id'], event));
-  };
-
-  const cancelDrag = () => {
-    setDraggingColumnId(undefined);
-  };
-
-  const endDrag = ({ over }) => {
-    if (isNil(over)) {
-      return;
-    }
-
-    const { id } = over;
-
-    const fromIndex = indexOf(draggingColumnId, visibleColumnIds);
-    const toIndex = indexOf(id, visibleColumnIds);
-
-    const updatedColumnIds = move(fromIndex, toIndex, visibleColumnIds);
-
-    onSelectColumns?.(updatedColumnIds);
-    setDraggingColumnId(undefined);
-  };
-
   const getColumnById = (id: string): Column => {
     return find(propEq('id', id), columns) as Column;
   };
 
+  const Content = ({
+    listeners,
+    attributes,
+    style,
+    isDragging,
+    itemRef,
+    id,
+  }: ContentProps) => {
+    return (
+      <SortableHeaderCellContent
+        column={getColumnById(id)}
+        columnConfiguration={columnConfiguration}
+        isDragging={isDragging}
+        itemRef={itemRef}
+        sortField={sortField}
+        sortOrder={sortOrder}
+        style={style}
+        onSort={onSort}
+        {...listeners}
+        {...attributes}
+      />
+    );
+  };
+
   return (
-    <DndContext
-      sensors={sensors}
-      onDragCancel={cancelDrag}
-      onDragEnd={endDrag}
-      onDragStart={startDrag}
-    >
+    <>
       <TableHead className={classes.row} component="div">
         <TableRow className={classes.row} component="div">
           {checkable && (
             <HeaderCell component="div">
               <Checkbox
                 checked={selectedRowCount === rowCount}
+                className={classes.compactCell}
                 indeterminate={
                   selectedRowCount > 0 && selectedRowCount < rowCount
                 }
@@ -148,31 +130,19 @@ const ListingHeader = ({
               />
             </HeaderCell>
           )}
-
-          <SortableContext items={visibleColumnIds}>
-            {visibleColumns.map((column) => (
-              <SortableHeaderCell
-                column={column}
-                columnConfiguration={columnConfiguration}
-                key={column.id}
-                sortField={sortField}
-                sortOrder={sortOrder}
-                onSort={onSort}
-              />
-            ))}
-          </SortableContext>
+          <SortableItems
+            updateSortableItemsOnItemsChange
+            Content={Content}
+            additionalProps={[sortField, sortOrder]}
+            collisionDetection={rectIntersection}
+            itemProps={['id']}
+            items={visibleColumns}
+            sortingStrategy={rectSortingStrategy}
+            onDragOver={(newItems) => onSelectColumns?.(newItems)}
+          />
         </TableRow>
       </TableHead>
-      <DragOverlay>
-        {draggingColumnId && (
-          <SortableHeaderCellContent
-            isDragging
-            column={getColumnById(draggingColumnId)}
-            columnConfiguration={columnConfiguration}
-          />
-        )}
-      </DragOverlay>
-    </DndContext>
+    </>
   );
 };
 
