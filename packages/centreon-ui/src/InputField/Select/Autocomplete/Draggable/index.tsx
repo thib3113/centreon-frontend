@@ -54,6 +54,7 @@ const DraggableAutocomplete = (
     const deleteValue = (id) => {
       setSelectedValues((values) => {
         const index = findIndex(propEq('id', id), values);
+
         return remove(index, 1, values);
       });
     };
@@ -62,6 +63,7 @@ const DraggableAutocomplete = (
       if (isEmpty(newValue)) {
         setSelectedValues(newValue);
         setInputText(null);
+
         return;
       }
       const lastValue = last(newValue);
@@ -76,6 +78,7 @@ const DraggableAutocomplete = (
         ]);
         setTotalValues(inc(totalValues));
         setInputText(null);
+
         return;
       }
       const lastItem = last<DraggableSelectEntry>(
