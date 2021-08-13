@@ -22,12 +22,12 @@ const ExpansionPanelSummary = withStyles((theme) => ({
     margin: theme.spacing(1, 0),
   },
   expanded: {},
-  focused: {},
+  focusVisible: {},
   root: {
     '&$expanded': {
       minHeight: 'auto',
     },
-    '&$focused': {
+    '&$focusVisible': {
       backgroundColor: 'unset',
     },
     justifyContent: 'flex-start',
