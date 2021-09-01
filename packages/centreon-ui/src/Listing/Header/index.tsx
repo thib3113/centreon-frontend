@@ -155,7 +155,7 @@ const columnMemoProps = [
   'type',
 ];
 
-const MemoizedListingHeader = React.memo(
+const MemoizedListingHeader = React.memo<Props & { memoProps: Array<unknown> }>(
   ListingHeader,
   (prevProps, nextProps) =>
     equals(prevProps.sortOrder, nextProps.sortOrder) &&
@@ -167,7 +167,8 @@ const MemoizedListingHeader = React.memo(
       map(pick(columnMemoProps), nextProps.columns),
     ) &&
     equals(prevProps.checkable, nextProps.checkable) &&
-    equals(prevProps.columnConfiguration, nextProps.columnConfiguration),
+    equals(prevProps.columnConfiguration, nextProps.columnConfiguration) &&
+    equals(prevProps.memoProps, nextProps.memoProps),
 );
 
 export default MemoizedListingHeader;

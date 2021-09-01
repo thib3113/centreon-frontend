@@ -96,6 +96,7 @@ export interface Props<TRow> {
   disableRowCondition?: (row) => boolean;
   expanded?: boolean;
   getId?: (row: TRow) => RowId;
+  headerMemoProps?: Array<unknown>;
   innerScrollDisabled?: boolean;
   limit?: number;
   loading?: boolean;
@@ -128,6 +129,7 @@ const Listing = <TRow extends { id: RowId }>({
   onSelectColumns,
   rows = [],
   currentPage = 0,
+  headerMemoProps = [],
   totalRows = 0,
   checkable = false,
   rowColorConditions = [],
@@ -307,6 +309,7 @@ const Listing = <TRow extends { id: RowId }>({
               checkable={checkable}
               columnConfiguration={columnConfiguration}
               columns={columns}
+              memoProps={headerMemoProps}
               rowCount={limit - emptyRows}
               selectedRowCount={selectedRows.length}
               sortField={sortField}
