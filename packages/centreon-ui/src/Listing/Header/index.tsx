@@ -52,6 +52,7 @@ type Props = Pick<
   | 'columnConfiguration'
   | 'totalRows'
 > & {
+  memoProps: Array<unknown>;
   onSelectAllClick: (event) => void;
   rowCount: number;
   selectedRowCount: number;
@@ -77,6 +78,7 @@ const ListingHeader = ({
   onSort,
   onSelectColumns,
   checkable,
+  memoProps,
 }: Props): JSX.Element => {
   const classes = useStyles();
 
@@ -137,6 +139,7 @@ const ListingHeader = ({
             collisionDetection={rectIntersection}
             itemProps={['id']}
             items={visibleColumns}
+            memoProps={memoProps}
             sortingStrategy={rectSortingStrategy}
             onDragOver={(newItems) => onSelectColumns?.(newItems)}
           />
