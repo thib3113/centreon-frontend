@@ -1,7 +1,7 @@
 import React from 'react';
 
 import IconSearch from '@material-ui/icons/Search';
-import CloseIcon from '@material-ui/icons/Cancel';
+import CloseIcon from '@material-ui/icons/Close';
 
 import TextField, { Props as TextFieldProps } from '../Text';
 
