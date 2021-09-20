@@ -12,21 +12,12 @@ interface Props {
 
 const useStyles = makeStyles({
   active: {
-    '.icons-toggle-arrow': {
-      transform: 'rotateZ(180deg)',
-    },
-    '.submenu-toggle': {
-      display: 'block',
-    },
     backgroundColor: '#000915',
   },
   bottom: {
     display: 'flex',
   },
   top: {
-    '.icons-toggle-arrow': {
-      position: 'absolute',
-    },
     alignItems: 'center',
     backgroundColor: '#232f39',
     display: 'flex',
