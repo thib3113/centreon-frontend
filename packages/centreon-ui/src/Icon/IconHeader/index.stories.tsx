@@ -13,7 +13,7 @@ const alertOnClick = (name) => {
   alert(`${name} clicked`);
 };
 
-const HeaderBackground = ({ children, color }) => (
+const HeaderBackground = ({ children, color = undefined }) => (
   <div style={{ backgroundColor: color || '#232f39' }}>{children}</div>
 );
 
