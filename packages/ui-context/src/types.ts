@@ -3,6 +3,7 @@ export interface User {
   locale: string;
   name: string;
   timezone: string;
+  use_deprecated_pages: boolean;
 }
 
 export type UserContext = {
