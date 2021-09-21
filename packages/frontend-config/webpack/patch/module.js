@@ -28,7 +28,7 @@ module.exports = ({ assetPublicPath, outputPath }) => ({
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif|off|woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
