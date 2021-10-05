@@ -91,7 +91,6 @@ stage('Unit tests') {
     node {
       unstash name: 'uicontext-centreon-build'
       sh "./centreon-build/jobs/frontend/${serie}/ui-context/uicontext-unittest.sh"
-      discoverGitReferenceBuild()
         recordIssues(
           referenceJobName: "${env.PROJECT}/${env.REF_BRANCH}",
           enabledForFailure: true,
