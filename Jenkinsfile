@@ -1,11 +1,10 @@
 /*
 ** Variables.
 */
-import groovy.json.JsonSlurper
 
-properties([buildDiscarder(logRotator(numToKeepStr: '50'))])
 def serie = '21.10'
 def maintenanceBranch = "${serie}.x"
+env.PROJECT = 'centreon-frontend'
 if (env.BRANCH_NAME.startsWith('release-')) {
   env.BUILD = 'RELEASE'
 } else if ((env.BRANCH_NAME == 'master') || (env.BRANCH_NAME == maintenanceBranch)) {
@@ -49,7 +48,6 @@ stage('Sonar analysis') {
       checkout scm
     }
     checkoutCentreonBuild(buildBranch)
-    discoverGitReferenceBuild()
     withSonarQubeEnv('SonarQubeDev') {
       sh "./centreon-build/jobs/frontend/${serie}/frontend-analysis.sh"
     }
@@ -77,8 +75,8 @@ stage('Unit tests') {
       unstash name: 'centreonui-centreon-build'
       sh "./centreon-build/jobs/frontend/${serie}/centreon-ui/centreonui-unittest.sh"
       junit 'ut.xml'
-      discoverGitReferenceBuild()
         recordIssues(
+          referenceJobName: "${env.PROJECT}/${env.REF_BRANCH}",
           enabledForFailure: true,
           qualityGates: [[threshold: 1, type: 'NEW', unstable: false]],
           failOnError: true,
@@ -95,6 +93,7 @@ stage('Unit tests') {
       sh "./centreon-build/jobs/frontend/${serie}/ui-context/uicontext-unittest.sh"
       discoverGitReferenceBuild()
         recordIssues(
+          referenceJobName: "${env.PROJECT}/${env.REF_BRANCH}",
           enabledForFailure: true,
           qualityGates: [[threshold: 1, type: 'NEW', unstable: false]],
           failOnError: true,
