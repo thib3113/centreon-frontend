@@ -5,6 +5,7 @@
 def serie = '21.10'
 def maintenanceBranch = "${serie}.x"
 env.PROJECT = 'centreon-frontend'
+env.REF_BRANCH = 'master'
 if (env.BRANCH_NAME.startsWith('release-')) {
   env.BUILD = 'RELEASE'
 } else if ((env.BRANCH_NAME == 'master') || (env.BRANCH_NAME == maintenanceBranch)) {
