@@ -53,9 +53,11 @@ stage('Sonar analysis') {
       sh "./centreon-build/jobs/frontend/${serie}/frontend-analysis.sh"
     }
 
-    def qualityGate = waitForQualityGate()
-    if (qualityGate.status != 'OK') {
-      currentBuild.result = 'FAIL'
+    timeout(time: 10, unit: 'MINUTES') {
+      def qualityGate = waitForQualityGate()
+      if (qualityGate.status != 'OK') {
+        currentBuild.result = 'FAIL'
+      }
     }
 
     source = readProperties file: 'source.properties'
