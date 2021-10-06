@@ -12,6 +12,7 @@ module.exports = {
       {
         exclude:
           /node_modules(\\|\/)(?!(@centreon(\\|\/)centreon-frontend(\\|\/)packages(\\|\/)(ui-context|centreon-ui)))/,
+        parser: { system: false },
         test: /\.(j|t)sx?$/,
         use: [
           { loader: 'cache-loader' },
