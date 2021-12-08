@@ -14,7 +14,7 @@ const log = anylogger('API Request');
 export interface RequestParams<TResult> {
   decoder?: JsonDecoder.Decoder<TResult>;
   defaultFailureMessage?: string;
-  getErrorMessage?: (error) => string;
+  getErrorMessage?: (error) => string | ((props) => JSX.Element);
   request: (token) => (params?) => Promise<TResult>;
 }
 
