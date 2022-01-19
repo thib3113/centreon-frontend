@@ -65,7 +65,6 @@ stage('Sonar analysis') {
     env.VERSION = "${source.VERSION}"
     env.RELEASE = "${source.RELEASE}"
     sh "./centreon-build/jobs/frontend/${serie}/frontend-sources.sh"
-    stash name: 'storybook', includes: 'storybook.tar.gz'
     stash includes: '**', name: 'centreonui-centreon-build'
     stash includes: '**', name: 'uicontext-centreon-build'
   }
@@ -78,7 +77,6 @@ stage('Unit tests') {
   parallel 'centreon-ui': {
     node {
       unstash name: 'centreonui-centreon-build'
-      unstash 'storybook'
       sh "./centreon-build/jobs/frontend/${serie}/centreon-ui/centreonui-unittest.sh"
       junit 'ut.xml'
       discoverGitReferenceBuild()
@@ -90,6 +88,7 @@ stage('Unit tests') {
           trendChartType: 'NONE'
         )
       stash includes: '**', name: 'centreon-frontend-centreonui-centreon-build'
+      stash name: 'storybook', includes: 'storybook.tar.gz'
       archiveArtifacts allowEmptyArchive: true, artifacts: 'snapshots/*.png'
     }
   },
@@ -112,6 +111,7 @@ stage('Unit tests') {
 stage ('Delivery') {
   node {
     unstash name: 'centreonui-centreon-build'
+    unstash 'storybook'
     sh "./centreon-build/jobs/frontend/${serie}/centreon-ui/centreonui-delivery.sh"
   }
 }
