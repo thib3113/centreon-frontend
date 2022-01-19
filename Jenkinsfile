@@ -88,7 +88,6 @@ stage('Unit tests') {
           trendChartType: 'NONE'
         )
       stash includes: '**', name: 'centreon-frontend-centreonui-centreon-build'
-      stash name: 'storybook', includes: 'storybook.tar.gz'
       archiveArtifacts allowEmptyArchive: true, artifacts: 'snapshots/*.png'
     }
   },
@@ -111,7 +110,6 @@ stage('Unit tests') {
 stage ('Delivery') {
   node {
     unstash name: 'centreonui-centreon-build'
-    unstash 'storybook'
     sh "./centreon-build/jobs/frontend/${serie}/centreon-ui/centreonui-delivery.sh"
   }
 }
