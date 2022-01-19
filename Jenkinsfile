@@ -43,35 +43,35 @@ def checkoutCentreonBuild(buildBranch) {
 /*
 ** Pipeline code.
 */
-// stage('Sonar analysis') {
-//   node {
-//     dir('centreon-frontend') {
-//       checkout scm
-//     }
-//     checkoutCentreonBuild(buildBranch)
-//     discoverGitReferenceBuild()
-//     withSonarQubeEnv('SonarQubeDev') {
-//       sh "./centreon-build/jobs/frontend/${serie}/frontend-analysis.sh"
-//     }
+stage('Sonar analysis') {
+  node {
+    dir('centreon-frontend') {
+      checkout scm
+    }
+    checkoutCentreonBuild(buildBranch)
+    discoverGitReferenceBuild()
+    withSonarQubeEnv('SonarQubeDev') {
+      sh "./centreon-build/jobs/frontend/${serie}/frontend-analysis.sh"
+    }
 
-//     timeout (time:10, unit: 'MINUTES') {
-//       def qualityGate = waitForQualityGate()
-//       if (qualityGate.status != 'OK') {
-//         currentBuild.result = 'FAIL'
-//       }
-//     }
+    timeout (time:10, unit: 'MINUTES') {
+      def qualityGate = waitForQualityGate()
+      if (qualityGate.status != 'OK') {
+        currentBuild.result = 'FAIL'
+      }
+    }
 
-//     source = readProperties file: 'source.properties'
-//     env.VERSION = "${source.VERSION}"
-//     env.RELEASE = "${source.RELEASE}"
-//     sh "./centreon-build/jobs/frontend/${serie}/frontend-sources.sh"
-//     stash includes: '**', name: 'centreonui-centreon-build'
-//     stash includes: '**', name: 'uicontext-centreon-build'
-//   }
-//   if ((currentBuild.result ?: 'SUCCESS') != 'SUCCESS') {
-//     error('Sonar analysis stage failure');
-//   }
-// }
+    source = readProperties file: 'source.properties'
+    env.VERSION = "${source.VERSION}"
+    env.RELEASE = "${source.RELEASE}"
+    sh "./centreon-build/jobs/frontend/${serie}/frontend-sources.sh"
+    stash includes: '**', name: 'centreonui-centreon-build'
+    stash includes: '**', name: 'uicontext-centreon-build'
+  }
+  if ((currentBuild.result ?: 'SUCCESS') != 'SUCCESS') {
+    error('Sonar analysis stage failure');
+  }
+}
 
 stage('Unit tests') {
   parallel 'centreon-ui': {
