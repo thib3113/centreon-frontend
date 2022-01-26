@@ -4,7 +4,7 @@
 import groovy.json.JsonSlurper
 
 properties([buildDiscarder(logRotator(numToKeepStr: '50'))])
-def serie = '22.04'
+def serie = '20.10'
 def maintenanceBranch = "${serie}.x"
 
 env.BUILD = 'REFERENCE'
