@@ -2,7 +2,6 @@ import React from 'react';
 
 export interface User {
   alias: string;
-  default_page: string | null;
   isExportButtonEnabled: boolean;
   locale: string;
   name: string;
