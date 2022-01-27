@@ -6,9 +6,14 @@ export interface User {
   isExportButtonEnabled: boolean;
   locale: string;
   name: string;
-  theme: 'light' | 'dark';
+  theme: Theme;
   timezone: string;
   use_deprecated_pages: boolean;
+}
+
+export enum Theme {
+  light,
+  dark,
 }
 
 export interface CloudServices {
