@@ -72,7 +72,7 @@ stage('Unit tests') {
   parallel 'centreon-ui': {
     node {
       unstash name: 'centreonui-centreon-build'
-      sh "./centreon-build/jobs/frontend/21.10/centreon-ui/centreonui-unittest.sh"
+      sh "./centreon-build/jobs/frontend/21.04/centreon-ui/centreonui-unittest.sh"
       junit 'ut.xml'
       discoverGitReferenceBuild()
         recordIssues(
@@ -106,7 +106,7 @@ if (env.BUILD == 'REFERENCE') {
   stage ('Delivery') {
     node {
       unstash name: 'centreonui-centreon-build'
-      sh "./centreon-build/jobs/frontend/21.10/centreon-ui/centreonui-delivery.sh"
+      sh "./centreon-build/jobs/frontend/21.04/centreon-ui/centreonui-delivery.sh"
     }
   }
 }
