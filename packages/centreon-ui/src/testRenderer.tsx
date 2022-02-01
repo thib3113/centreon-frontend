@@ -10,10 +10,11 @@ import ThemeProvider from './ThemeProvider';
 
 interface Props {
   children: React.ReactChild;
+  userTheme: string;
 }
 
-const ThemeProviderWrapper = ({ children }: Props): JSX.Element => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+const ThemeProviderWrapper = ({ children, userTheme }: Props): JSX.Element => {
+  return <ThemeProvider userTheme={userTheme}>{children}</ThemeProvider>;
 };
 
 const render = (
