@@ -66,9 +66,10 @@ const theme = createTheme(
 
 interface Props {
   children: React.ReactChild;
+  userTheme: string;
 }
 
-const ThemeProvider = ({ children }: Props): JSX.Element => (
+const ThemeProvider = ({ children, userTheme }: Props): JSX.Element => (
   <StyledEngineProvider injectFirst>
     <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
   </StyledEngineProvider>

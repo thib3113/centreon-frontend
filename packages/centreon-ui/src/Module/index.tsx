@@ -11,12 +11,14 @@ export interface ModuleProps {
   children: React.ReactElement;
   maxSnackbars: number;
   seedName: string;
+  userTheme: string;
 }
 
 const Module = ({
   children,
   seedName,
   maxSnackbars,
+  userTheme,
 }: ModuleProps): JSX.Element => {
   const generateClassName = createGenerateClassName({
     seed: seedName,
@@ -24,7 +26,7 @@ const Module = ({
 
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <ThemeProvider>
+      <ThemeProvider userTheme={userTheme}>
         <SnackbarProvider maxSnackbars={maxSnackbars}>
           <JotaiProvider scope="ui-context">{children}</JotaiProvider>
         </SnackbarProvider>
