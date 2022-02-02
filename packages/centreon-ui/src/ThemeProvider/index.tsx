@@ -8,6 +8,8 @@ import {
   adaptV4Theme,
 } from '@mui/material';
 
+import { ThemeMode } from '@centreon/ui-context/src/types'
+
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
@@ -66,10 +68,11 @@ const theme = createTheme(
 
 interface Props {
   children: React.ReactChild;
-  userTheme: string;
+  themeMode: ThemeMode;
 }
 
-const ThemeProvider = ({ children, userTheme }: Props): JSX.Element => (
+
+const ThemeProvider = ({ children, themeMode }: Props): JSX.Element => (
   <StyledEngineProvider injectFirst>
     <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
   </StyledEngineProvider>

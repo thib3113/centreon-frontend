@@ -6,14 +6,17 @@ import {
   RenderResult,
 } from '@testing-library/react';
 
+import { ThemeMode } from '@centreon/ui-context'
+
 import ThemeProvider from './ThemeProvider';
 
 interface Props {
   children: React.ReactChild;
+  themeMode: ThemeMode;
 }
 
-const ThemeProviderWrapper = ({ children }: Props): JSX.Element => {
-  return <ThemeProvider userTheme="light">{children}</ThemeProvider>;
+const ThemeProviderWrapper = ({ children, themeMode }: Props): JSX.Element => {
+  return <ThemeProvider themeMode={themeMode}>{children}</ThemeProvider>;
 };
 
 const render = (
