@@ -4,8 +4,9 @@ import { Provider as JotaiProvider } from 'jotai';
 
 import { createGenerateClassName, StylesProvider } from '@mui/styles';
 
+import { ThemeMode } from '@centreon/ui-context';
+
 import { ThemeProvider } from '..';
-import { ThemeMode } from '@centreon/ui-context'
 import SnackbarProvider from '../Snackbar/SnackbarProvider';
 
 export interface ModuleProps {

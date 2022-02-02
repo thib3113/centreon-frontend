@@ -6,9 +6,9 @@ import {
   RenderResult,
 } from '@testing-library/react';
 
-import { ThemeMode } from '@centreon/ui-context'
+import { ThemeMode } from '@centreon/ui-context';
 
-import ThemeProvider from './ThemeProvider';
+import ThemeProvider from './StoryBookThemeProvider';
 
 interface Props {
   children: React.ReactChild;
