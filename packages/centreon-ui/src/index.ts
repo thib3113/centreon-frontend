@@ -45,7 +45,9 @@ export { default as Panel } from './Panel';
 export { default as WithPanel } from './Panel/WithPanel';
 export { default as MemoizedPanel } from './Panel/Memoized';
 
-export { default as ThemeProvider } from './StoryBookThemeProvider';
+export { default as ThemeProvider } from './ThemeProvider';
+export { default as StoryBookThemeProvider } from './StoryBookThemeProvider';
+
 export { default as Wizard } from './Wizard';
 export { default as PageSkeleton } from './PageSkeleton';
 
