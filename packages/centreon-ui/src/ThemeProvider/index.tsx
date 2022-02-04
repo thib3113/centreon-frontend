@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useAtomValue } from 'jotai/utils';
+import { equals } from 'ramda';
 
 import {
   ThemeProvider as MuiThemeProvider,
@@ -30,7 +31,7 @@ declare module '@mui/material/styles/createPalette' {
 export const getTheme = (mode: ThemeMode): ThemeOptions => ({
   palette: {
     mode,
-    ...(mode === ThemeMode.light
+    ...(equals(mode, ThemeMode.light)
       ? {
           background: {
             default: '#EDEDED',
@@ -41,10 +42,10 @@ export const getTheme = (mode: ThemeMode): ThemeOptions => ({
         }
       : {
           background: {
-            default: blue[500],
+            default: grey[800],
           },
           primary: {
-            main: grey[800],
+            main: blue[500],
           },
         }),
     action: {
