@@ -92,7 +92,7 @@ const ListingActionBar = ({
       )}
       {paginated && (
         <StyledPagination
-          data-testid={t(labelRowsPerPage)}
+          data-testid={"mui-7"}
           ariaLabel={t(labelRowsPerPage)}
           ActionsComponent={PaginationActions}
           SelectProps={{
