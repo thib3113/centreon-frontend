@@ -92,6 +92,8 @@ const ListingActionBar = ({
       )}
       {paginated && (
         <StyledPagination
+          data-testid={t(labelRowsPerPage)}
+          ariaLabel={t(labelRowsPerPage)}
           ActionsComponent={PaginationActions}
           SelectProps={{
             native: true,

@@ -15,7 +15,7 @@ const styles = {
 };
 
 const Pagination = (props): JSX.Element => (
-  <TablePagination component="div" {...props} />
+  <TablePagination ariaLabel="aria-label" component="div" {...props} />
 );
 
 const MemoizedPagination = React.memo(
