@@ -10,11 +10,11 @@ const IconToggleSubmenu = ({ rotate, onClick }) => {
   const ExpandIcon = rotate ? ExpandLessIcon : ExpandMoreIcon;
 
   return (
-    <div data-testid={"expandMenu"}>
-    <ExpandIcon
-      style={{ color: '#FFFFFF', cursor: 'pointer' }}
-      onClick={onClick}
-    />
+    <div data-testid="expandMenu">
+      <ExpandIcon
+        style={{ color: '#FFFFFF', cursor: 'pointer' }}
+        onClick={onClick}
+      />
     </div>
   );
 };
