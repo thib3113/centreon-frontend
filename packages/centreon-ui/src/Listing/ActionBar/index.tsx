@@ -100,6 +100,7 @@ const ListingActionBar = ({
           className={classes.pagination}
           colSpan={3}
           count={totalRows}
+          data-testid={t(labelRowsPerPage)}
           labelDisplayedRows={labelDisplayedRows}
           labelRowsPerPage={t(labelRowsPerPage)}
           page={currentPage}
