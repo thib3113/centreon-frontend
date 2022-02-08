@@ -53,7 +53,7 @@ const StatusCounter = ({ severityCode, count }: Props): JSX.Element => {
   const avatarClass = count > 0 ? classes.colored : classes.bordered;
 
   return (
-    <Avatar data-testid={count} className={clsx(avatarClass, classes.icon)}>
+    <Avatar className={clsx(avatarClass, classes.icon)} data-testid={count}>
       {numeral(count).format('0a')}
     </Avatar>
   );
