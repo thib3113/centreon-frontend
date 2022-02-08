@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 
 type Props = Pick<
   ListingProps<unknown>,
-    'ariaLabel'
   | 'actions'
   | 'onLimitChange'
   | 'onPaginate'
@@ -45,7 +44,6 @@ type Props = Pick<
 >;
 
 const ListingActionBar = ({
-  ariaLabel,
   actions,
   onPaginate,
   onLimitChange,
@@ -95,7 +93,6 @@ const ListingActionBar = ({
       {paginated && (
         <StyledPagination
           ActionsComponent={PaginationActions}
-          data-testid={ariaLabel}
           className={classes.pagination}
           colSpan={3}
           count={totalRows}

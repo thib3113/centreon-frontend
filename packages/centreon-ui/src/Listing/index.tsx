@@ -112,7 +112,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export interface Props<TRow> {
-  ariaLabel?: string;
   actions?: JSX.Element;
   checkable?: boolean;
   columnConfiguration?: ColumnConfiguration;

@@ -15,13 +15,7 @@ const styles = {
 };
 
 const Pagination = (props): JSX.Element => (
-  <TablePagination SelectProps={{
-    inputProps: {
-      'aria-label': 'rows per page',
-      'data-testid' : 'rows per page',
-    },
-    native: true,
-  }} component="div" data-testid={"mui-8"} {...props} />
+  <TablePagination component="div" {...props} />
 );
 
 const MemoizedPagination = React.memo(
