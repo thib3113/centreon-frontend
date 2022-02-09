@@ -82,11 +82,9 @@ const SubmenuItem = ({
         className={clsx(classes.title, {
           [classes.dotted]: !!dotColored,
         })}
+        data-testid={submenuTitle}
       >
-        <span
-          className={clsx(classes.dot, classes[dotColored || ''])}
-          data-testid={submenuTitle}
-        />
+        <span className={clsx(classes.dot, classes[dotColored || ''])} />
         <Typography className={classes.titleContent} variant="body2">
           {submenuTitle}
         </Typography>
