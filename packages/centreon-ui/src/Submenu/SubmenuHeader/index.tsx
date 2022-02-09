@@ -6,6 +6,7 @@ import makeStyles from '@mui/styles/makeStyles';
 
 interface Props {
   active: boolean;
+  ariaLabel?: string;
   children: React.ReactChildren | Array<React.ReactElement>;
 }
 
@@ -27,11 +28,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SubmenuHeader = ({ children, active, ...props }: Props): JSX.Element => {
+const SubmenuHeader = ({
+  children,
+  active,
+  ariaLabel,
+  ...props
+}: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
     <div
+      aria-label={ariaLabel}
       className={clsx(classes.top, {
         [classes.active]: active,
       })}
