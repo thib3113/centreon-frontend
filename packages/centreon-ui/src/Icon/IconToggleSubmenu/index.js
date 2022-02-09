@@ -10,7 +10,7 @@ const IconToggleSubmenu = ({ rotate, onClick, ariaLabel }) => {
   const ExpandIcon = rotate ? ExpandLessIcon : ExpandMoreIcon;
 
   return (
-    <div aria-label={ariaLabel}>
+    <div data-testid={ariaLabel}>
       <ExpandIcon
         aria-label={ariaLabel}
         style={{ color: '#FFFFFF', cursor: 'pointer' }}
