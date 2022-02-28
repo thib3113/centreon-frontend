@@ -63,6 +63,7 @@
     "@babel/preset-env": "7.x",
     "@babel/preset-react": "7.x",
     "@swc/core": "1.x",
+    "@swc/helpers": "0.x",
     "@swc/jest": "0.x",
     "@testing-library/jest-dom": "5.x",
     "@testing-library/react": "12.x",
