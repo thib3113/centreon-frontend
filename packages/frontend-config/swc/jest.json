@@ -1,0 +1,17 @@
+{
+  "jsc": {
+    "externalHelpers": true,
+    "loose": true,
+    "parser": {
+      "dynamicImport": true,
+      "syntax": "typescript",
+      "tsx": true
+    },
+    "target": "es5",
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    }
+  }
+}
