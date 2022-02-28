@@ -19,6 +19,6 @@ module.exports = {
     '^.+\\.[jt]sx?$': ['@swc/jest', { ...config }],
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!centreon-frontend/packages/(centreon-ui|ui-context)).+\\.jsx?$',
+    '/node_modules/(?!centreon-frontend/packages/(centreon-ui|ui-context)).+\\.(j|t)sx?$',
   ],
 };
