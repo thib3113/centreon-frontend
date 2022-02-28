@@ -1,5 +1,4 @@
 {
-  "sync": true,
   "jsc": {
     "externalHelpers": true,
     "loose": true,
