@@ -18,11 +18,9 @@ module.exports = {
         test: /\.(j|t)sx?$/,
         use: {
           loader: 'swc-loader',
-          options: {
-            jsc: isDevelopment
-              ? require('../../swc/dev.json')
-              : require('../../swc/default.json'),
-          },
+          options: isDevelopment
+            ? require('../../swc/dev.json')
+            : require('../../swc/default.json'),
         },
       },
     ],
