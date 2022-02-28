@@ -5,6 +5,7 @@ const path = require('path');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 console.log(
+  process.env.NODE_ENV,
   isDevelopment
     ? require('../../swc/dev.json')
     : require('../../swc/default.json'),
