@@ -4,6 +4,12 @@ const path = require('path');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
+console.log(
+  isDevelopment
+    ? require('../../swc/dev.json')
+    : require('../../swc/default.json'),
+);
+
 module.exports = {
   cache: false,
   module: {
