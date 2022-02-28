@@ -1,3 +1,7 @@
+const fs = require('fs');
+
+const config = JSON.parse(fs.readFileSync(`../swc/default.json`, 'utf-8'));
+
 module.exports = {
   moduleNameMapper: {
     '@centreon/ui':
@@ -10,7 +14,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
-    '^.+\\.[jt]sx?$': '@swc/jest',
+    '^.+\\.[jt]sx?$': ['@swc/jest', { ...config }],
   },
   transformIgnorePatterns: [
     '/node_modules/(?!centreon-frontend/packages/(centreon-ui|ui-context)).+\\.jsx?$',
