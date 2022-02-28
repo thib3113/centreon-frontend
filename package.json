@@ -62,6 +62,8 @@
     "@babel/plugin-proposal-class-properties": "7.x",
     "@babel/preset-env": "7.x",
     "@babel/preset-react": "7.x",
+    "@swc/core": "1.x",
+    "@swc/jest": "0.x",
     "@testing-library/jest-dom": "5.x",
     "@testing-library/react": "12.x",
     "@typescript-eslint/eslint-plugin": "^5.x",
@@ -97,6 +99,7 @@
     "prettier": "2.x",
     "resolve-url-loader": "5.x",
     "sass-loader": "12.x",
+    "swc-loader": "0.x",
     "ts-loader": "9.x",
     "typescript": "4.x",
     "webpack-merge": "5.x"
