@@ -1,10 +1,7 @@
 const fs = require('fs');
 
 const config = JSON.parse(
-  fs.readFileSync(
-    `${__dirname}/packages/frontend-config/swc/default.json`,
-    'utf-8',
-  ),
+  fs.readFileSync(`${__dirname}/../swc/default.json`, 'utf-8'),
 );
 
 module.exports = {
