@@ -20,5 +20,6 @@
         "refresh": true
       }
     }
-  }
+  },
+  "sourceMaps": true
 }
