@@ -1,5 +1,7 @@
 {
+  "sync": true,
   "jsc": {
+    "externalHelpers": true,
     "loose": true,
     "minify": {
       "compress": {
