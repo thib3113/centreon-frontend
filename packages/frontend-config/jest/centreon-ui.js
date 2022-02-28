@@ -6,6 +6,6 @@ module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
-    '^.+\\.[jt]sx?$': 'babel-jest',
+    '^.+\\.[jt]sx?$': '@swc/jest',
   },
 };

@@ -2,6 +2,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   cache: false,
   module: {
@@ -14,16 +16,14 @@ module.exports = {
         exclude:
           /node_modules(\\|\/)(?!(centreon-frontend(\\|\/)packages(\\|\/)(ui-context|centreon-ui)))/,
         test: /\.(j|t)sx?$/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'ts-loader',
-            options: {
-              allowTsInNodeModules: true,
-              transpileOnly: true,
-            },
+        use: {
+          loader: 'swc-loader',
+          options: {
+            jsc: isDevelopment
+              ? require('../../swc/dev.json')
+              : require('../../swc/default.json'),
           },
-        ],
+        },
       },
     ],
   },

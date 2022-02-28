@@ -10,7 +10,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
-    '^.+\\.[jt]sx?$': 'babel-jest',
+    '^.+\\.[jt]sx?$': '@swc/jest',
   },
   transformIgnorePatterns: [
     '/node_modules/(?!centreon-frontend/packages/(centreon-ui|ui-context)).+\\.jsx?$',

@@ -1,0 +1,30 @@
+{
+  "jsc": {
+    "loose": true,
+    "minify": {
+      "compress": {
+        "unused": true
+      },
+      "mangle": true
+    },
+    "parser": {
+      "dynamicImport": true,
+      "syntax": "typescript",
+      "tsx": true
+    },
+    "target": "es3",
+    "transform": {
+      "react": {
+        "runtime": "automatic"
+      }
+    }
+  },
+  "module": {
+    "type": "umd",
+    "globals": {},
+    "strict": false,
+    "strictMode": true,
+    "lazy": true,
+    "noInterop": false
+  }
+}
