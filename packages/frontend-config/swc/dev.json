@@ -4,7 +4,8 @@
     "minify": {
       "compress": {
         "unused": true
-      }
+      },
+      "mangle": true
     },
     "parser": {
       "dynamicImport": true,
@@ -18,5 +19,8 @@
         "refresh": true
       }
     }
+  },
+  "module": {
+    "type": "umd"
   }
 }
