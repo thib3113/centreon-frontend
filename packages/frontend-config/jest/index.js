@@ -1,6 +1,11 @@
 const fs = require('fs');
 
-const config = JSON.parse(fs.readFileSync(`../swc/default.json`, 'utf-8'));
+const config = JSON.parse(
+  fs.readFileSync(
+    `${__dirname}/node_modules/centreon-frontend/packages/frontend-config/swc/default.json`,
+    'utf-8',
+  ),
+);
 
 module.exports = {
   moduleNameMapper: {
