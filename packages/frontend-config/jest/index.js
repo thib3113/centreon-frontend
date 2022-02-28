@@ -4,8 +4,6 @@ const config = JSON.parse(
   fs.readFileSync(`${__dirname}/../swc/jest.json`, 'utf-8'),
 );
 
-console.log(config);
-
 module.exports = {
   moduleNameMapper: {
     '@centreon/ui':
