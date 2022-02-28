@@ -18,13 +18,5 @@
         "refresh": true
       }
     }
-  },
-  "module": {
-    "type": "umd",
-    "globals": {},
-    "strict": false,
-    "strictMode": true,
-    "lazy": true,
-    "noInterop": false
   }
 }
