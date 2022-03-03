@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import * as React from 'react';
 
 import { SortableContainer } from 'react-sortable-hoc';
