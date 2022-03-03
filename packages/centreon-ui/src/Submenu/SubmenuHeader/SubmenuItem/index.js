@@ -10,13 +10,15 @@ import styles from '../submenu.scss';
 
 class SubmenuItem extends Component {
   render() {
-    const { dotColored, submenuTitle, submenuCount } = this.props;
+    const { dotColored, submenuTitle, submenuCount, countTestId, titleTestId } =
+      this.props;
     return (
       <li className={clsx(styles['submenu-item'])}>
         <span
           className={clsx(styles['submenu-item-title'], {
             [styles['submenu-item-dotted']]: !!dotColored,
           })}
+          data-testid={titleTestId}
         >
           <span
             className={clsx(
@@ -26,7 +28,10 @@ class SubmenuItem extends Component {
           />
           {submenuTitle}
         </span>
-        <span className={clsx(styles['submenu-item-count'])}>
+        <span
+          className={clsx(styles['submenu-item-count'])}
+          data-testid={countTestId}
+        >
           {submenuCount}
         </span>
       </li>

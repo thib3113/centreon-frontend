@@ -12,6 +12,7 @@ import { IconButton } from '..';
 
 interface Props {
   children: React.ReactNode;
+  dataTestId?: string;
   icon: JSX.Element;
   onClose?: () => void;
   onOpen?: () => void;
@@ -26,6 +27,7 @@ const PopoverMenu = ({
   popperPlacement,
   onOpen,
   onClose,
+  dataTestId,
 }: Props): JSX.Element => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState();
@@ -55,7 +57,12 @@ const PopoverMenu = ({
   return (
     <ClickAwayListener onClickAway={close}>
       <div>
-        <IconButton ariaLabel={title} title={title} onClick={toggle}>
+        <IconButton
+          ariaLabel={title}
+          data-testid={dataTestId}
+          title={title}
+          onClick={toggle}
+        >
           {icon}
         </IconButton>
         <Popper
