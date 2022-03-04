@@ -133,9 +133,9 @@ const FiltersSummary = (): JSX.Element => {
   );
 };
 
-const NonExpandableFilters = (): JSX.Element => {
-  return <Filters filters={<FiltersSummary />} />;
-};
+const NonExpandableFilters = (): JSX.Element => (
+  <Filters filters={<FiltersSummary />} />
+);
 
 interface ExpandableFiltersWithOpenButtonProps {
   onOpen?: () => void;
