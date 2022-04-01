@@ -125,6 +125,8 @@ export type { RootComponentProps } from './SortableItems';
 export { default as LoadingSkeleton } from './LoadingSkeleton';
 
 export { default as Module } from './Module';
+export { default as ModuleWithTheme } from './Module/ModuleWithTheme';
+
 export { default as LicensedModule } from './Module/LicensedModule';
 export { default as SnackbarProvider } from './Snackbar/SnackbarProvider';
 export { default as PersistentTooltip } from './InputField/Search/PersistentTooltip';
