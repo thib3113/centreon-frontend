@@ -28,16 +28,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   noLabelInput: {
     padding: theme.spacing(1),
   },
-  root: {
-    '& .MuiFilledInput-root': {
-      '& .MuiFilledInput-input': {
-        '&:-webkit-autofill': {
-          '-webkit-text-fill-color': theme.palette.text.primary,
-          transitionDelay: '9999s',
-        },
-      },
-    },
-  },
   small: {
     fontSize: 'small',
     padding: theme.spacing(0.75),
@@ -61,7 +51,11 @@ const OptionalLabelInputAdornment = ({
   const noMarginWhenNoLabel = !label && { style: { marginTop: 0 } };
 
   return (
-    <InputAdornment {...noMarginWhenNoLabel} position={position}>
+    <InputAdornment
+      {...noMarginWhenNoLabel}
+      position={position}
+      variant="filled"
+    >
       {children}
     </InputAdornment>
   );
@@ -119,7 +113,6 @@ const TextField = React.forwardRef(
               </OptionalLabelInputAdornment>
             ),
           }}
-          className={classes.root}
           error={!isNil(error)}
           helperText={displayErrorInTooltip ? undefined : error}
           inputProps={{
