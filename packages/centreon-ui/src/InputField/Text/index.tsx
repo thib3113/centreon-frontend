@@ -41,23 +41,17 @@ interface OptionalLabelInputAdornmentProps {
   children: React.ReactNode;
   label?: React.ReactNode;
   position: 'end' | 'start';
-  variant?: 'filled' | 'outlined' | 'standard';
 }
 
 const OptionalLabelInputAdornment = ({
   label,
   position,
   children,
-  variant,
 }: OptionalLabelInputAdornmentProps): JSX.Element => {
   const noMarginWhenNoLabel = !label && { style: { marginTop: 0 } };
 
   return (
-    <InputAdornment
-      {...noMarginWhenNoLabel}
-      position={position}
-      variant={variant}
-    >
+    <InputAdornment {...noMarginWhenNoLabel} position={position}>
       {children}
     </InputAdornment>
   );
@@ -105,20 +99,12 @@ const TextField = React.forwardRef(
             }),
             disableUnderline: true,
             endAdornment: EndAdornment && (
-              <OptionalLabelInputAdornment
-                label={label}
-                position="end"
-                variant="filled"
-              >
+              <OptionalLabelInputAdornment label={label} position="end">
                 <EndAdornment />
               </OptionalLabelInputAdornment>
             ),
             startAdornment: StartAdornment && (
-              <OptionalLabelInputAdornment
-                label={label}
-                position="start"
-                variant="filled"
-              >
+              <OptionalLabelInputAdornment label={label} position="start">
                 <StartAdornment />
               </OptionalLabelInputAdornment>
             ),
