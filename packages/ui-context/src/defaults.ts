@@ -30,7 +30,7 @@ const defaultAcl = {
 };
 
 const defaultDowntime = {
-  duration: 7200,
+  duration: 3600,
   fixed: true,
   with_services: false,
 };
@@ -38,7 +38,6 @@ const defaultDowntime = {
 const defaultRefreshInterval = 15;
 
 const defaultAcknowledgement = {
-  force_active_checks: false,
   notify: true,
   persistent: false,
   sticky: false,
